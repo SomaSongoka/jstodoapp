@@ -1,2 +1,196 @@
 body {
+  background-color: #17181f;
+
+  section.todo-area {
+    margin: 5%;
+    padding: 2% 20%;
+
+    div.todo-title {
+      margin-bottom: 5%;
+      border-bottom: 1px solid #1d1d1d;
+      button {
+        border-radius: 13px;
+        margin: 5% 0%;
+        border-color: #5d0f1d;
+        background: #5d0f1d;
+
+        i {
+          font-size: 1.5em;
+          color: #fff;
+        }
+      }
+
+      button:hover {
+        border-color: #560606;
+        background: #560606;
+      }
+
+      h2 {
+        color: #fff;
+        font-size: 2em;
+        font-family: "Monoton", cursive;
+        span {
+          font-family: "Lato", sans-serif;
+          font-size: 0.7em;
+          float: right;
+
+          i {
+            cursor: pointer;
+          }
+          i:hover {
+            color: #fd9a04;
+          }
+        }
+      }
+    }
+
+    div.todo-new {
+      div.input-group {
+        border: 0.1px solid #404040;
+        border-radius: 30px;
+
+        span {
+          margin: 10px;
+          margin-right: 2px;
+          border-radius: 20px !important;
+          background-color: #fd9a04;
+          border-color: #fd9a04;
+          i {
+            color: #fff;
+          }
+        }
+        input[type="text"] {
+          margin: 10px;
+          margin-left: 2px;
+
+          // Text Area
+          background-color: #17181f;
+          border: none;
+        }
+
+        input[type="text"]:focus,
+        input[type="text"]:active {
+          border: none;
+          transition: none;
+          box-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+
+    div.todo-task {
+      $size: 1.3em;
+      div.todo-check {
+        ul.list-group {
+          li.list-group-item {
+            background-color: #20212c;
+            margin-bottom: 2%;
+            border-radius: 15px;
+            input[type="checkbox"] {
+              font-size: $size;
+              border: 3px solid #d0062a !important;
+              border-radius: 10px;
+            }
+            input[type="checkbox"]:focus {
+              box-shadow: 0 0 0 0.25rem #fd0d4f40;
+            }
+
+            input[type="checkbox"]:checked {
+              border-color: #d0062a;
+              background-color: #d0062a;
+              border: 3px solid;
+              box-shadow: none;
+            }
+
+            label {
+              cursor: pointer;
+              font-family: "Vollkorn", serif;
+              font-size: $size;
+              color: #fff;
+            }
+
+            span {
+              cursor: pointer;
+              float: right;
+              i {
+                color: #fff;
+              }
+
+              i:hover {
+                color: #d0062a;
+              }
+            }
+          }
+        }
+
+        ul.list-crossed {
+          margin-top: 5%;
+          border-top: 2px dotted #333;
+          border-radius: 0px;
+
+          li:nth-child(1) {
+            margin-top: 5%;
+          }
+          li.list-group-item {
+            background-color: #20212c;
+            label {
+              font-family: "Dancing Script", cursive;
+              text-decoration-color: #fd9a04 !important;
+              text-decoration: line-through;
+              text-decoration-thickness: 2px;
+              text-decoration-style: wavy;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Delete Wrapper
+  div.delete-wrapper {
+    background: rgba(47, 12, 12, 0.83);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+
+    div.delete-pop {
+      font-family: "Lato", sans-serif;
+      text-align: center;
+      width: 100%;
+      max-width: 250px;
+      margin: 10% auto;
+      padding: 20px;
+      background: #17181f;
+      position: relative;
+      border-radius: 10px;
+
+      div.delete-close {
+        color: #fff;
+        font-weight: bold;
+        font-size: 2em;
+        float: right;
+        display: contents;
+
+        i {
+          color: #fff;
+        }
+      }
+      div.delete-content {
+        h2 {
+          color: #fff;
+          span {
+            color: red;
+          }
+        }
+
+        img {
+          width: 100%;
+          border-radius: 20px;
+        }
+      }
+    }
+  }
 }
