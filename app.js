@@ -99,6 +99,23 @@ ulInActive.addEventListener('click', e => {
 });
 
 
+/**
+ * 4: Get Searched List
+ *  -> Add event lister to search input
+ * */
+const search = document.querySelector('#searchtask');
+search.addEventListener('keyup', e => {
+    //When user press Enter
+    if(e.key === 'Enter' && !isEmptyOrSpaces(search.value)){
+        let searched = search.value; //Searched String
+
+        //Active Task
+
+        // Inactive Task
+
+    }
+});
+
 //Validate Empty String
 function isEmptyOrSpaces(str){
     let reg = /^ *$/;
