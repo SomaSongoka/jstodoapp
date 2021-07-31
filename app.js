@@ -79,6 +79,26 @@ ulActive.addEventListener('click', e => {
     }
 });
 
+/**
+ * 3: Get Unchecked Completed List
+ *  -> Listen a click event on InActive list
+ * */
+ulInActive.addEventListener('click', e => {
+    //Listen to check Box && Delete
+    if (e.target.tagName === 'INPUT') {
+        if(!e.target.checked){
+            let li = e.target.parentElement; // Parent li Element
+            //Delete i
+            let span = `<span><i class="fas fa-trash"></i></span>`;
+            //Add the Delete Button
+            li.innerHTML += span;
+            //Move to active List
+            ulActive.append(li);
+        }
+    } 
+});
+
+
 //Validate Empty String
 function isEmptyOrSpaces(str){
     let reg = /^ *$/;
@@ -105,12 +125,14 @@ toDo.addEventListener('click', e => {
     if (e.target.tagName === 'I') {
         //Focus
         let input = div.querySelector('input');
-        //Add input element
-        div.innerHTML = `<h2>${input.value}</h2>`;
+        if(input !== null){
+            //Add input element
+            div.innerHTML = `<h2>${input.value}</h2>`;
 
-        //Span
-        let span = div.parentElement.querySelector('span');
-        span.style.display = 'none';
+            //Span
+            let span = div.parentElement.querySelector('span');
+            span.style.display = 'none';
+        }
     }else{
         //Focus
         let input = div.querySelector('input');
