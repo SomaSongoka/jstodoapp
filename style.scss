@@ -29,18 +29,36 @@ body {
         color: #fff;
         font-size: 2em;
         font-family: "Monoton", cursive;
-        span {
-          font-family: "Lato", sans-serif;
-          font-size: 0.7em;
-          float: right;
+      }
 
-          i {
-            cursor: pointer;
-          }
-          i:hover {
-            color: #fd9a04;
-          }
+      span {
+        display: none;
+        font-family: "Lato", sans-serif;
+        font-size: 1.3em;
+        float: right;
+        color: #fff;
+
+        i {
+          cursor: pointer;
         }
+        i:hover {
+          color: #fd9a04;
+        }
+      }
+
+      // New Title
+      input#dotoname {
+        width: 100%;
+        background-color: #17181f;
+        border: none;
+      }
+
+      input#dotoname:focus,
+      input#dotoname:active {
+        border: none;
+        transition: none;
+        box-shadow: none;
+        color: #fff;
       }
     }
 

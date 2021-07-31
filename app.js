@@ -54,6 +54,9 @@ ulActive.addEventListener('click', e => {
             span.remove();
             //Move to Inactive List
             ulInActive.append(li);
+            //Play Audio
+            let audio = document.querySelector('#complete');
+            audio.play();
         }
     } else if(e.target.tagName === 'I') {
         let li = e.target.parentElement.parentElement; // Parent li Element
@@ -64,6 +67,10 @@ ulActive.addEventListener('click', e => {
 
         // Delete List
         li.remove(); 
+
+        //Play Audio
+        let audio = document.querySelector('#delete');
+        audio.play();
 
         //Remove Wrapper
         setTimeout(()=> {
@@ -78,3 +85,57 @@ function isEmptyOrSpaces(str){
     return str === null || reg.test(str);
 }
 
+/**
+ * ADD-ONS
+ * 1: Back Button
+ * 2: Edit 
+ * 3: Done Editing
+ * */
+
+// Back Button
+let btn =  document.querySelector('button');
+btn.addEventListener('click', () => alert('To be added soon:'));
+
+// Edit Main Title
+const toDo = document.querySelector('.todo-title');
+toDo.addEventListener('click', e => {
+    //Div
+    let div = toDo.querySelector('div:nth-child(2)');
+    //Check If Edit
+    if (e.target.tagName === 'I') {
+        //Focus
+        let input = div.querySelector('input');
+        //Add input element
+        div.innerHTML = `<h2>${input.value}</h2>`;
+
+        //Span
+        let span = div.parentElement.querySelector('span');
+        span.style.display = 'none';
+    }else{
+        //Focus
+        let input = div.querySelector('input');
+        if(input !== null){
+            //Add input element
+            div.innerHTML = `<h2>${input.value}</h2>`;
+        }
+    }
+}); 
+
+//Edit Title
+toDo.addEventListener('dblclick', e => {
+    let h2 = toDo.querySelector('h2');
+    let div = h2.parentElement; // Get Parent Div
+
+    //Add input element
+    div.innerHTML = `
+    <input id="dotoname" type="text" value="${h2.innerText}"/>
+    `;
+    //Focus
+    let input = div.querySelector('input');
+    input.focus();
+    input.selectionStart = input.selectionEnd = input.value.length;//Set cursor to the end of input
+
+    //Span
+    let span = div.parentElement.querySelector('span');
+    span.style.display = 'block';
+});
