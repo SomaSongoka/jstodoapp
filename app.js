@@ -32,7 +32,7 @@ taskTitle.addEventListener('keyup', e => {
         li.innerHTML = `
             <input class="form-check-input me-1" type="checkbox" value="active" id="task-${liNo + 1}"/>
             <label>${task.trim()}</label>
-            <span><i class="fas fa-trash"></i></span>
+            <span><i class="fas fa-trash delete"></i></span>
         `;
         li.classList.add('list-group-item');
         ulActive.append(li);
@@ -58,7 +58,7 @@ ulActive.addEventListener('click', e => {
             let audio = document.querySelector('#complete');
             audio.play();
         }
-    } else if(e.target.tagName === 'I') {
+    } else if(e.target.tagName === 'I' && e.target.classList.contains('delete')) {
         let li = e.target.parentElement.parentElement; // Parent li Element
 
         //Show Wrapper
