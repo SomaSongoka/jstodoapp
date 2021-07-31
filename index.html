@@ -63,13 +63,10 @@
                   id="searchtask"
                   type="text"
                   class="form-control"
-                  placeholder="Add new Task"
+                  placeholder="Click to search task"
                   aria-label="searchtask"
                   aria-describedby="basic-addon1"
                 />
-                <span class="input-group-text">
-                  <i class="fas fa-search"></i>
-                </span>
               </div>
             </div>
           </div>
@@ -102,13 +99,13 @@
         <div class="row">
           <div class="col-lg-12">
             <div class="todo-check">
-              <ul class="list-group" id="active-task">
-                <!-- Each List -->
-              </ul>
+              <!-- Active List -->
+              <ul class="list-group" id="active-task"></ul>
+              <!-- Completed List -->
+              <ul class="list-group list-crossed" id="inactive-task"></ul>
 
-              <ul class="list-group list-crossed" id="inactive-task">
-                <!-- Crossed List -->
-              </ul>
+              <!-- Searched List -->
+              <ul class="list-group" id="search-task"></ul>
             </div>
           </div>
         </div>

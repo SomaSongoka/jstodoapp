@@ -62,6 +62,39 @@ body {
       }
     }
 
+    div.todo-search {
+      margin-bottom: 5%;
+      div.input-group {
+        span {
+          margin: 10px;
+          border-radius: 10px !important;
+          background-color: #17181f;
+          border-color: #1a2dbd;
+          i {
+            color: rgb(41, 41, 41);
+            border-radius: 15px;
+          }
+        }
+        input[type="text"] {
+          margin: 10px;
+          border-radius: 15px;
+          border: 0.8px solid #fd9a04;
+          // Text Area
+          background-color: #17181f;
+        }
+
+        input[type="text"]:focus,
+        input[type="text"]:active {
+          border: none;
+          border-bottom: 0.8px solid #fd9a04;
+          border-radius: 0px;
+          transition: none;
+          box-shadow: none;
+          color: #fff;
+        }
+      }
+    }
+
     div.todo-new {
       div.input-group {
         border: 0.1px solid #404040;
@@ -159,6 +192,10 @@ body {
               text-decoration-style: wavy;
             }
           }
+        }
+
+        ul#search-task {
+          display: none;
         }
       }
     }
