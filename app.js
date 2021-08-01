@@ -89,7 +89,7 @@ ulInActive.addEventListener('click', e => {
         if(!e.target.checked){
             let li = e.target.parentElement; // Parent li Element
             //Delete i
-            let span = `<span><i class="fas fa-trash"></i></span>`;
+            let span = `<span><i class="fas fa-trash delete"></i></span>`;
             //Add the Delete Button
             li.innerHTML += span;
             //Move to active List
@@ -106,13 +106,61 @@ ulInActive.addEventListener('click', e => {
 const search = document.querySelector('#searchtask');
 search.addEventListener('keyup', e => {
     //When user press Enter
-    if(e.key === 'Enter' && !isEmptyOrSpaces(search.value)){
+    if(!isEmptyOrSpaces(search.value)){
         let searched = search.value; //Searched String
 
+        //Array
+        let found = false;
+        ulActive.style.display = 'none';
+        ulInActive.style.display = 'none';
+
         //Active Task
+        let activeli = ulActive.querySelectorAll('li');
+        activeli.forEach(element => {
+            let label = element.querySelector('label').innerText.toLowerCase();
+            
+            //Check If String Found
+            if(label.search(searched.toLowerCase()) > -1){
+                element.style.display = 'block';
+            }else{
+                //Hide this element
+                element.style.display = 'none';
+            }
+        });
+        ulActive.style.display = 'block';
 
-        // Inactive Task
+        //InActive Task
+        let inactiveli = ulInActive.querySelectorAll('li');
+        inactiveli.forEach(element => {
+            let label = element.querySelector('label').innerText.toLowerCase();
+            
+            //Check If String Found
+            if(label.search(searched.toLowerCase()) > -1){
+                element.style.display = 'block';
+            }else{
+                //Hide this element
+                element.style.display = 'none';
+            }
+        });
+        ulInActive.style.display = 'block';
+        
+    }else{
+        ulActive.style.display = 'block';
+        ulInActive.style.display = 'block';
 
+        //Active Task
+        let activeli = ulActive.querySelectorAll('li');
+        activeli.forEach(element => {
+            //Show this element
+            element.style.display = 'block';
+        });
+
+        //InActive Task
+        let inactiveli = ulInActive.querySelectorAll('li');
+        inactiveli.forEach(element => {
+            //Show this element
+            element.style.display = 'block';
+        });
     }
 });
 
