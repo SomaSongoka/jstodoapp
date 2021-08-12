@@ -7,16 +7,6 @@
 
 // Steps
 
-/**
- * 1: Get the input
- *  -> Listen a key event, when user pless enter while typing on task area
- * */
-
-let taskTitle = document.querySelector('input[name="tasktitle"]');
-
-// Select the Task UL
-const ulActive = document.querySelector('#active-task');
-const ulInActive = document.querySelector('#inactive-task');
                 
 //Event Lister
 taskTitle.addEventListener('keyup', e => {
@@ -25,12 +15,15 @@ taskTitle.addEventListener('keyup', e => {
        let task = taskTitle.value; 
        //Empty the value
        taskTitle.value = '';
-       let liNo = ulActive.children.length;
+       let liNo = ulActive.children.length + 1;
+
+       //Active Task
+       doToActive(task);
         
        //Create Element
         const li = document.createElement('li');
         li.innerHTML = `
-            <input class="form-check-input me-1" type="checkbox" value="active" id="task-${liNo + 1}"/>
+            <input class="form-check-input me-1" type="checkbox" value="active" id="task-${liNo}"/>
             <label>${task.trim()}</label>
             <span><i class="fas fa-trash delete"></i></span>
         `;
@@ -67,6 +60,9 @@ ulActive.addEventListener('click', e => {
 
         // Delete List
         li.remove(); 
+        // Delete from storage
+        let deletedInput = e.target.parentElement.previousElementSibling.previousElementSibling.id;
+        deleteTask(deletedInput);
 
         //Play Audio
         let audio = document.querySelector('#delete');
@@ -179,7 +175,11 @@ function isEmptyOrSpaces(str){
 
 // Back Button
 let btn =  document.querySelector('button');
-btn.addEventListener('click', () => alert('To be added soon:'));
+btn.addEventListener('click', () => {
+    localStorage.clear();
+    alert('List Cleared:');
+    location.reload(); //Refresh Page
+});
 
 // Edit Main Title
 const toDo = document.querySelector('.todo-title');
